@@ -1,0 +1,16 @@
+<polymer-element name="tag-input">
+  <template>
+    <link href="tag-input.css" rel="stylesheet">
+
+    <input-with-helptext floatingLabel label='Tags'
+    on-click='{{checkDropdown}}'
+    helptext='type in your tag then hit enter to select it'>
+      <input id='input' on-keydown='{{onKeydown}}' is="core-input" />
+
+      <tag-dropdown id='dropdown' on-sel-val='{{onSelVal}}' tags='{{showTags}}'>
+      </tag-dropdown>
+    </input-with-helptext>
+  </template>
+
+  <script type="text/javascript" src='tag-input.js'></script>
+</polymer-element>

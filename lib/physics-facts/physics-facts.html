@@ -1,0 +1,50 @@
+<link rel="import" href="imports.html">
+
+<polymer-element name="physics-facts">
+  <template>
+    <link href="physics-facts.css" rel="stylesheet">
+
+    <core-ajax
+      id='ajax'
+      url="/api"
+      contentType="application/json"
+      params='{"alt":"json", "q":"chrome"}'
+      handleAs="json"
+      on-core-response="{{handleResponse}}"></core-ajax>
+
+    <router-thingy on-route-changed="{{handleRoute}}"></router-thingy>
+
+    <core-header-panel>
+      <div class="core-header">
+        <div class="container">
+          <paper-tabs id='tabs' on-core-select="{{tabSelect}}" style='width:50%'>
+            <paper-tab role="tab"><a href='/#/'>FACTS</a></paper-tab>
+            <paper-tab role="tab">TAGS</paper-tab>
+
+            <paper-tab>
+              <a hidden?='{{userid}}' href='/api/users/sign_in'>sign in </a>
+            </paper-tab>
+
+            <paper-tab role='tab' hidden?='{{!userid}}'>
+              <a href='/#/addfact'>
+                add fact
+              </a>
+            </paper-tab>
+          </paper-tabs>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container">
+          <core-pages id='pages' selected="0">
+            <div>One</div>
+            <div>tags</div>
+            <div><fact-form></fact-form></div>
+          </core-pages>
+        </div>
+      </div>
+    </core-header-panel>
+
+  </template>
+  <script type="text/javascript" src='physics-facts.js'></script>
+</polymer-element>

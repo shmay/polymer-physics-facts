@@ -1,0 +1,15 @@
+{
+  "name": "physics-facts",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "",
+    "grunt-contrib-coffee": "",
+    "grunt-contrib-compass": "",
+    "grunt-contrib-connect": "",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-connect-proxy" : "",
+    "grunt-contrib-watch": "",
+    "grunt-sass": "",
+    "grunt-vulcanize": ""
+  }
+}

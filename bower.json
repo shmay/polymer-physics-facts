@@ -1,0 +1,26 @@
+{
+  "name": "physics facts",
+  "version": "0.0.0",
+  "authors": [
+    "Kyle Murphy <kmurph73@gmail.com>"
+  ],
+  "description": "crazy physics facts",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer",
+    "core-elements": "Polymer/core-elements",
+    "paper-elements": "Polymer/paper-elements",
+    "cookies": "ScottHamper/Cookies",
+    "flatiron-director":"flatiron/director",
+    "bowser": "ded/bowser",
+    "bourbon": "thoughtbot/bourbon",
+    "spin.js": "fgnass/spin.js"
+  }
+}

@@ -1,0 +1,39 @@
+:host /deep/ .core-header { 
+  height: 60px;
+  line-height: 60px;
+  font-size: 18px;
+  padding: 0 10px;
+  background-color: #4F7DC9;
+  color: #FFF;
+  transition: height 0.2s;
+}
+
+:host /deep/ .content {
+  height: 2000px;
+  background: linear-gradient(rgb(214, 227, 231), lightblue);
+}
+
+core-header-panel {
+  position: static;
+}
+
+.container {
+  width: 1170px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+paper-tabs#tabs a {
+  flex: 0;
+  height: auto;
+  text-decoration: none;
+  color: #FFF;
+
+  &:visited {
+    text-decoration: none;
+    color: #FFF
+  }
+
+}

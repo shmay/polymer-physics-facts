@@ -1,0 +1,29 @@
+<polymer-element name="fact-form">
+  <template>
+    <link href="fact-form.css" rel="stylesheet">
+
+    <form on-submit='{{submitty}}'>
+      <div vertical layout>
+        <div>
+
+          <paper-input-decorator floatingLabel label="Title">
+            <input is="core-input">
+          </paper-input-decorator>
+
+          <paper-input-decorator floatingLabel label="Body">
+            <textarea></textarea>
+          </paper-input-decorator>
+
+          <tag-input></tag-input>
+
+          <paper-button raised on-click='{{clickSub}}'>
+            Submit
+          </paper-button>
+
+        </div>
+      </div>
+    </form>
+  </template>
+
+  <script type="text/javascript" src='fact-form.js'></script>
+</polymer-element>
