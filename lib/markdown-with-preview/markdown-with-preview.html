@@ -1,0 +1,18 @@
+<polymer-element name="markdown-with-preview" layout horizontal attributes='text'>
+  <template>
+    <link href="markdown-with-preview.css" rel="stylesheet">
+
+    <div>
+      <div class='title'>Text (use markdown)</div>
+      <textarea id='text' class='form-control' is='core-input' value="{{text}}">
+      </textarea>
+    </div>
+    <div>
+      <div class='title'>Preview</div>
+      <mark-down id='preview' text='{{text}}'></mark-down>
+    </div>
+
+  </template>
+
+  <script type="text/javascript" src='markdown-with-preview.js'></script>
+</polymer-element>

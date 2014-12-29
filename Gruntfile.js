@@ -43,11 +43,11 @@ module.exports = function(grunt) {
             console.log(options.base);
             var proxy = require('grunt-connect-proxy/lib/utils').proxyRequest;
             return [
-              // Include the proxy first
+              // include the proxy first
               proxy,
-              // Serve static files.
+              // serve static files.
               connect.static(options.base[0]),
-              // Make empty directories browsable.
+              // make empty directories browsable.
               connect.directory(options.base[0])
             ];
           }

@@ -6,8 +6,8 @@
     "grunt-contrib-coffee": "",
     "grunt-contrib-compass": "",
     "grunt-contrib-connect": "",
-    "grunt-contrib-sass": "^0.8.1",
     "grunt-connect-proxy" : "",
+    "grunt-contrib-sass": "^0.8.1",
     "grunt-contrib-watch": "",
     "grunt-sass": "",
     "grunt-vulcanize": ""

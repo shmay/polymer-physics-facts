@@ -19,6 +19,9 @@
     "paper-elements": "Polymer/paper-elements",
     "cookies": "ScottHamper/Cookies",
     "flatiron-director":"flatiron/director",
+    "tagger-input": "shmay/tagger-input",
+    "mark-down": "robdodson/mark-down",
+    "bottom-drawer": "shmay/bottom-drawer",
     "bowser": "ded/bowser",
     "bourbon": "thoughtbot/bourbon",
     "spin.js": "fgnass/spin.js"

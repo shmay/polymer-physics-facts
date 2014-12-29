@@ -1,3 +1,5 @@
+@import "../sass-globals/globals.scss";
+
 :host /deep/ .core-header { 
   height: 60px;
   line-height: 60px;
@@ -25,6 +27,10 @@ core-header-panel {
   margin-left: auto;
 }
 
+#content {
+  padding-top: 15px;
+}
+
 paper-tabs#tabs a {
   flex: 0;
   height: auto;
@@ -35,5 +41,4 @@ paper-tabs#tabs a {
     text-decoration: none;
     color: #FFF
   }
-
 }

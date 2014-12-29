@@ -1,18 +1,32 @@
-:host {
-  width: 600px;
-  position: absolute;
-  margin-top: 20px; }
+#title-input {
+  height: 35px;
+  margin-right: 15px;
+  font-size: 20px;
+  padding: 5px 10px; }
 
-.row {
-  margin-top: 10px;
-  height: 60px; }
+#content {
+  padding: 10px 30px; }
+  #content tagger-input {
+    width: 50%;
+    margin-left: 5px;
+    margin-top: 15px; }
+  #content bootstrap-input {
+    width: 50%;
+    margin-right: 5px; }
+    #content bootstrap-input /deep/ input {
+      font-size: 20px;
+      padding: 5px; }
 
-label {
-  padding: 0 10px; }
+#markdown {
+  margin-top: 40px; }
 
-paper-input {
-  width: 100%; }
+#bottom {
+  margin-top: 15px; }
 
 paper-button {
-  background: #4285f4;
-  color: #fff; }
+  background-color: #3e50b4;
+  fill: white;
+  color: white; }
+
+#cancel {
+  background-color: #d9534f; }

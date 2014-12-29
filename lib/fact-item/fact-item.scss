@@ -1,0 +1,17 @@
+:host {
+  margin-top:10px;
+  display: block;
+  border: 1px solid black;
+}
+
+#stuff > div {
+  padding: 10px;
+}
+
+.votes {
+  border-right:1px solid gray;
+}
+
+.title {
+  border-left:none;
+}

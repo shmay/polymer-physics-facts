@@ -1,0 +1,30 @@
+:host {
+  > div {
+    width: 50%;
+
+    &:nth-child(2) {
+      margin-right: 5px;
+    }
+
+    &:nth-child(3) {
+      margin-left: 15px;
+    }
+  }
+  
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+#text {
+  width: 95%;
+  min-height: 120px;
+}
+
+#preview {
+  background-color: white;
+  border: 1px dotted gray;
+  width: 100%;
+  min-height: 120px;
+}
+

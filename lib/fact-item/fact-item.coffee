@@ -1,0 +1,1 @@
+Polymer 'fact-item'

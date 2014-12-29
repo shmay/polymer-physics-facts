@@ -1,0 +1,50 @@
+<polymer-element name="facts-page">
+  <template>
+    <link href="facts-page.css" rel="stylesheet">
+
+    <div id='yar'>
+      <h3>facts</h3>
+      <paper-button on-tap='{{tapAdd}}' id='newbtn' raised>Add New Fact</paper-button>
+    </div>
+
+    <core-ajax
+      id='ajax'
+      url="/api"
+      contentType="application/json"
+      params='{"alt":"json", "q":"chrome"}'
+      handleAs="json"
+      on-core-response="{{handleResponse}}"></core-ajax>
+
+    <center>
+      <table>
+        <thead>
+          <th>Star</th>
+          <th>Votes</th>
+          <th>Title</th>
+          <th>Tags</th>
+          <th>Views</th>
+          <th>Activity</th>
+        </thead>
+        <tbody>
+          <template repeat='{{fact in facts}}'>
+            <tr>
+              <td class='star'>
+                <core-icon icon='star-outline'></core-icon>
+              </td>
+              <td class='votes'>0</td>
+              <td>
+                <a href='/#/facts/{{fact.id}}'>{{fact.title}}</a>
+              </td>
+              <td>[[fact.tag_str]]</td>
+              <td>236</td>
+              <td>Dec '13</td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </center>
+
+  </template>
+
+  <script type="text/javascript" src='facts-page.js'></script>
+</polymer-element>

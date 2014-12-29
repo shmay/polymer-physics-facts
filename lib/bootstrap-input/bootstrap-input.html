@@ -1,0 +1,15 @@
+<polymer-element name="bootstrap-input" attributes='label showLabel val'>
+  <template>
+    <link href="bootstrap-input.css" rel="stylesheet">
+
+    <span hidden?='{{labelHidden}}' id='labelText'>{{label}}</span>
+
+    <input value='{{val}}'
+      class='form-control'
+      placeholder='{{label}}' 
+      id='input' is='core-input' />
+
+  </template>
+
+  <script type="text/javascript" src='bootstrap-input.js'></script>
+</polymer-element>

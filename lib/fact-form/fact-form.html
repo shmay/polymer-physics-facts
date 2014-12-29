@@ -2,27 +2,34 @@
   <template>
     <link href="fact-form.css" rel="stylesheet">
 
-    <form on-submit='{{submitty}}'>
-      <div vertical layout>
-        <div>
+    <core-ajax
+      id='ajax'
+      url="/api/facts"
+      method='POST'
+      contentType="application/json"
+      handleAs="json"
+      on-core-response="{{handleResponse}}"></core-ajax>
 
-          <paper-input-decorator floatingLabel label="Title">
-            <input is="core-input">
-          </paper-input-decorator>
-
-          <paper-input-decorator floatingLabel label="Body">
-            <textarea></textarea>
-          </paper-input-decorator>
-
-          <tag-input></tag-input>
-
-          <paper-button raised on-click='{{clickSub}}'>
-            Submit
-          </paper-button>
-
-        </div>
+    <div id='content'>
+      <div horizontal layout>
+        <bootstrap-input val='{{title}}' label='Fact title'></bootstrap-input>
+        <tagger-input selectedTags='{{tags}}' label='input tags naw ...'></tagger-input>
       </div>
-    </form>
+
+      <markdown-with-preview text='{{text}}' id='markdown'></markdown-with-preview>
+
+      <div id='bottom'>
+        <paper-button raised on-tap='{{tapSubmit}}'>
+          <core-icon icon='add'></core-icon>
+          create new fact
+        </paper-button>
+
+        <paper-button id='cancel' raised on-tap='{{cancel}}'>
+          <core-icon icon='highlight-remove'></core-icon>
+        cancel</paper-button>
+      </div>
+    </div>
+
   </template>
 
   <script type="text/javascript" src='fact-form.js'></script>
