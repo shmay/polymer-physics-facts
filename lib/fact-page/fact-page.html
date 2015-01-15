@@ -1,0 +1,19 @@
+<polymer-element name="fact-page" attributes='factid'>
+  <template>
+    <link href="fact-page.css" rel="stylesheet">
+
+    <center>
+      <h2>{{fact.title}}</h2>
+      <mark-down text='{{fact.body}}'></mark-down>
+    </center>
+
+    <core-ajax
+      id='ajax'
+      contentType="application/json"
+      method='GET'
+      handleAs="json"
+      on-core-response="{{handleResponse}}"></core-ajax>
+  </template>
+
+  <script type="text/javascript" src='fact-page.js'></script>
+</polymer-element>

@@ -3,7 +3,7 @@
     <link href="facts-page.css" rel="stylesheet">
 
     <div id='yar'>
-      <h3>facts</h3>
+      <h3>FACTS</h3>
       <paper-button on-tap='{{tapAdd}}' id='newbtn' raised>Add New Fact</paper-button>
     </div>
 
@@ -11,12 +11,13 @@
       id='ajax'
       url="/api"
       contentType="application/json"
-      params='{"alt":"json", "q":"chrome"}'
       handleAs="json"
       on-core-response="{{handleResponse}}"></core-ajax>
 
     <center>
-      <table>
+      <paper-spinner class='red' active hidden?='{{!!facts}}'></paper-spinner>
+
+      <table hidden?='{{!facts}}'>
         <thead>
           <th>Star</th>
           <th>Votes</th>

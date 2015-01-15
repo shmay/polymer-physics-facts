@@ -2,23 +2,44 @@ Polymer "physics-facts",
   ready: ->
     @userid = Cookies.get('user_id')
 
-    #@$.drawer.open()
-
   handleResponse: (e,d,s) ->
     console.log 'handleResponse'
 
   handleRoute: (e,d,s) ->
-    switch d
-      when 'add-fact'
+    [route,id] = d
+    switch route
+      when 'go-home'
+        @$.pages.selected = 0
+      when 'tags'
+        @$.pages.selected = 1
+      when 'showfact'
+        @$.factpage.factid = id
         @$.pages.selected = 2
 
-  tabSelect: (e,d,s) ->
-    console.log 'tabSelect'
-    switch d.item.id
-      when 'addfact'
-        @$.drawer.open()
+  tapAuth: (e,d,s) ->
+    @$.authlog.open()
 
-  closeDrawer: (e,d,s) -> @$.drawer.close()
+  tabSelect: (e,d,s) ->
+    if d.isSelected
+      switch d.item.id
+        when 'signout'
+          @$.signoutjax.headers = {"X-Requested-With": "XMLHttpRequest"}
+          "X-User-Email": Cookies.get('user_email')
+          "X-User-Token": Cookies.get('auth_token')
+          @$.signoutjax.go()
+        when 'tags'
+          h = "#/tags"
+        when 'facts'
+          h = "/"
+
+      if h 
+        window.location.hash = h
+
+  closeDrawer: (e,d,s) ->
+    @$.drawer.close()
 
   openDrawer: (e,d,s) ->
     @$.drawer.open()
+
+  reloadFacts: ->
+    @$.factspage.getFacts()

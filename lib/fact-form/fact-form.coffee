@@ -1,11 +1,13 @@
 Polymer 'fact-form',
-  clickSub: ->
-    @submitty()
+  clickSub: -> @submitty()
 
   handleResponse: (e,d,s) ->
-    debugger
+    @fire('reload-facts')
 
-  cancel: (e,d,s) -> @fire('close-drawer')
+    window.location.hash = "#/facts/#{d.response.id}"
+
+  cancel: (e,d,s) -> 
+    @fire('close-drawer')
 
   tapSubmit: (e,d,s) ->
     @$.ajax.headers = 
@@ -17,7 +19,7 @@ Polymer 'fact-form',
       fact:
         body:@text
         title:@title
-        tag_list:@tags
+      tag_list:@tags
 
     @$.ajax.body = JSON.stringify json
 

@@ -1,10 +1,12 @@
 Polymer "router-thingy",
-  do: (action) -> @asyncFire('route-changed', action)
+  do: (action, param) -> @asyncFire('route-changed', [action,param])
 
   ready: ->
     that = @
     routes =
-      "/addfact": (e,d,s) -> that.do('add-fact')
+      "/": -> that.do('go-home')
+      "/tags": -> that.do('tags')
+      "/facts/:factid": (param) -> that.do('showfact', parseInt(param))
 
     router = Router(routes)
     router.init()

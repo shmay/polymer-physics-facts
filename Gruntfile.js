@@ -34,6 +34,13 @@ module.exports = function(grunt) {
           port: 3000,
           https: false,
           xforward: false
+        },
+        {
+          context: '/auth',
+          host: 'localhost',
+          port: 3000,
+          https: false,
+          xforward: false
         }
         ],
         options: {

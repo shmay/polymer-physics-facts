@@ -4,14 +4,23 @@
 
     <router-thingy on-route-changed="{{handleRoute}}"></router-thingy>
 
+    <core-ajax
+      id='signoutjax'
+      url="/api/users/sign_out"
+      method='DELETE'
+      on-core-response="{{handleResponse}}"></core-ajax>
+
     <core-header-panel>
       <div class="core-header">
         <div class="container">
           <paper-tabs id='tabs' on-core-select="{{tabSelect}}" style='width:50%'>
-            <paper-tab role="tab"><a href='/#/'>FACTS</a></paper-tab>
-            <paper-tab role="tab"><a href='/#/tags'>TAGS</a></paper-tab>
-            <paper-tab>
-              <a hidden?='{{userid}}' href='/api/users/sign_in'>sign in </a>
+            <paper-tab role="tab" id='facts'>FACTS</paper-tab>
+            <paper-tab role="tab" id='tags'>TAGS</paper-tab>
+            <paper-tab hidden?='{{userid}}' id='signin' on-tap='{{tapAuth}}'>
+              SIGN IN
+            </paper-tab>
+            <paper-tab hidden?='{{!userid}}' id='signout'>
+              SIGN OUT
             </paper-tab>
           </paper-tabs>
         </div>
@@ -20,17 +29,19 @@
       <div id='content' class="content">
         <div class="container" on-open-drawer='{{openDrawer}}'>
           <core-pages id='pages' selected="0">
-            <facts-page></facts-page>
+            <facts-page id='factspage'></facts-page>
             <div>tags</div>
-            <div><fact-form></fact-form></div>
+            <fact-page id='factpage'></fact-page>
           </core-pages>
         </div>
       </div>
     </core-header-panel>
 
     <bottom-drawer id='drawer'>
-      <fact-form on-close-drawer='{{closeDrawer}}'></fact-form>
+      <fact-form on-reload-facts='{{reloadFacts}}' on-close-drawer='{{closeDrawer}}'></fact-form>
     </bottom-drawer>
+
+    <auth-dialog id='authlog'></auth-dialog>
 
   </template>
   <script type="text/javascript" src='physics-facts.js'></script>
