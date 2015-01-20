@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  margin-bottom: 10px; }
+
+:host ::content {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px; }
+  :host ::content > bs-tab {
+    float: left;
+    margin-bottom: -1px;
+    display: inline-flex;
+    line-height: 1.42857;
+    padding: 6px 20px;
+    border-radius: 4px 4px 0 0;
+    border-bottom: 1px solid #ddd;
+    color: #337ab7;
+    cursor: pointer; }
+    :host ::content > bs-tab:hover {
+      border-color: #eeeeee #eeeeee #ddd; }
+    :host ::content > bs-tab.core-selected, :host ::content > bs-tab.core-selected:hover, :host ::content > bs-tab.core-selected:focus {
+      color: #555555;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-bottom-color: transparent;
+      cursor: default; }

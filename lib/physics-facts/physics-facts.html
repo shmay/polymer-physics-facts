@@ -4,22 +4,16 @@
 
     <router-thingy on-route-changed="{{handleRoute}}"></router-thingy>
 
-    <core-ajax
-      id='signoutjax'
-      url="/api/users/sign_out"
-      method='DELETE'
-      on-core-response="{{handleResponse}}"></core-ajax>
-
     <core-header-panel>
       <div class="core-header">
         <div class="container">
           <paper-tabs id='tabs' on-core-select="{{tabSelect}}" style='width:50%'>
             <paper-tab role="tab" id='facts'>FACTS</paper-tab>
             <paper-tab role="tab" id='tags'>TAGS</paper-tab>
-            <paper-tab hidden?='{{userid}}' id='signin' on-tap='{{tapAuth}}'>
+            <paper-tab hidden?='{{email}}' id='signin' on-tap='{{tapAuth}}'>
               SIGN IN
             </paper-tab>
-            <paper-tab hidden?='{{!userid}}' id='signout'>
+            <paper-tab hidden?='{{!email}}' id='signout'>
               SIGN OUT
             </paper-tab>
           </paper-tabs>
@@ -41,7 +35,8 @@
       <fact-form on-reload-facts='{{reloadFacts}}' on-close-drawer='{{closeDrawer}}'></fact-form>
     </bottom-drawer>
 
-    <auth-dialog id='authlog'></auth-dialog>
+
+    <auth-dialog on-set-email='{{setEmail}}' id='authlog'></auth-dialog>
 
   </template>
   <script type="text/javascript" src='physics-facts.js'></script>

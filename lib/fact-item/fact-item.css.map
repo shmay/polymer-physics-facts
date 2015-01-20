@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,KAAM;EACJ,UAAU,EAAC,IAAI;EACf,OAAO,EAAE,KAAK;EACd,MAAM,EAAE,eAAe;;AAGzB,YAAa;EACX,OAAO,EAAE,IAAI;;AAGf,MAAO;EACL,YAAY,EAAC,cAAc;;AAG7B,MAAO;EACL,WAAW,EAAC,IAAI",
+"sources": ["fact-item.scss"],
+"names": [],
+"file": "fact-item.css"
+}

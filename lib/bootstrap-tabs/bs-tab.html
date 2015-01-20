@@ -1,0 +1,22 @@
+<polymer-element on-tap='{{clickTab}}' name="bs-tab">
+
+<template>
+
+  <link rel="stylesheet" href="bs-tab.css">
+  
+  <div class="tab-content" flex auto center-center horizontal layout>
+    <content></content>
+  </div>
+
+</template>
+<script>
+
+  Polymer('bs-tab', {
+    clickTab: function (e,d,s) {
+      console.log('clickTa0');
+      this.fire('click-tab',s);
+    }
+  });
+
+</script>
+</polymer-element>

@@ -17,11 +17,13 @@
     "polymer": "Polymer/polymer",
     "core-elements": "Polymer/core-elements",
     "paper-elements": "Polymer/paper-elements",
+    "bootstrap-sass": "twbs/bootstrap-sass",
     "cookies": "ScottHamper/Cookies",
     "flatiron-director":"flatiron/director",
     "tagger-input": "shmay/tagger-input",
     "mark-down": "robdodson/mark-down",
     "bottom-drawer": "shmay/bottom-drawer",
+    "bootstrap-alert": "shmay/bootstrap-alert",
     "bowser": "ded/bowser",
     "bourbon": "thoughtbot/bourbon",
     "spin.js": "fgnass/spin.js"

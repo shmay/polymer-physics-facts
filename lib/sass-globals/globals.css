@@ -1,12 +1,10 @@
 :host /deep/ .form-control {
   display: block;
-  height: 35px;
   color: #555;
   background-color: #fff !important;
   background-image: none;
   border: 1px solid #ccc !important;
   border-radius: 5px;
-  font-size: 20px;
   padding: 5px;
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   -moz-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;

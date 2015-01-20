@@ -44,3 +44,8 @@ paper-button {
 #cancel {
   background-color: $brand-danger;
 }
+
+:host /deep/ .form-control {
+  height: 35px;
+  font-size:20px;
+}

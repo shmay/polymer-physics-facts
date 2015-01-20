@@ -2,18 +2,15 @@
   <template>
     <link href="auth-dialog.css" rel="stylesheet">
 
-    <core-ajax
-      id='ajax'
-      url="/api/users/sign_in"
-      method='POST'
-      contentType="application/json"
-      on-core-response="{{handleResponse}}"></core-ajax>
+    <bootstrap-tabs on-core-select="{{tabSelect}}" selected='0'>
+      <bs-tab>Sign Up</bs-tab>
+      <bs-tab>Sign In</bs-tab>
+    </bootstrap-tabs>
 
-    <a target='_blank' href="/auth/users/auth/google_oauth2">Sign in with Google</a>
-    <input type='text' value='{{email}}' autofocus />
-    <input type='text' value='{{pw}}' />
+    <auth-form on-close='{{close}}' id='form'></auth-form>
 
-    <button on-tap='{{submit}}' core-overlay-toggle>OK</button>
   </template>
+
   <script type="text/javascript" src='auth-dialog.js'></script>
+
 </polymer-element>

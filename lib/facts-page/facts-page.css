@@ -27,3 +27,19 @@ td.title {
 table {
   border-spacing: 0;
   border-collapse: collapse; }
+
+#table .star {
+  width: 50px; }
+#table .votes {
+  width: 70px; }
+#table .title {
+  width: 400px; }
+#table .tags {
+  width: 200px; }
+#table .views {
+  width: 50px; }
+#table .activity {
+  width: 70px; }
+
+#header > div {
+  font-weight: bold; }

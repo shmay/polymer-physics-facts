@@ -30,3 +30,7 @@ paper-button {
 
 #cancel {
   background-color: #d9534f; }
+
+:host /deep/ .form-control {
+  height: 35px;
+  font-size: 20px; }

@@ -1,0 +1,44 @@
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+:host {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+:host ::content {
+  border-bottom: 1px solid $nav-tabs-border-color;
+  margin-bottom: 15px;
+
+  & > bs-tab {
+    float: left;
+    // Make the list-items overlay the bottom border
+    margin-bottom: -1px;
+
+    display: inline-flex;
+
+    line-height: $line-height-base;
+    padding: 6px 20px;
+    border-radius: $border-radius-base $border-radius-base 0 0;
+    border-bottom: 1px solid $nav-tabs-active-link-hover-border-color;
+    color: #337ab7;
+
+    cursor: pointer;
+
+    &:hover {
+      border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
+    }
+
+    // Active state, and its :hover to override normal :hover
+    &.core-selected {
+      &,
+      &:hover,
+      &:focus {
+        color: $nav-tabs-active-link-hover-color;
+        background-color: $nav-tabs-active-link-hover-bg;
+        border: 1px solid $nav-tabs-active-link-hover-border-color;
+        border-bottom-color: transparent;
+        cursor: default;
+      }
+    }
+  }
+}

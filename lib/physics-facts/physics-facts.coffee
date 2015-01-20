@@ -1,6 +1,6 @@
 Polymer "physics-facts", 
   ready: ->
-    @userid = Cookies.get('user_id')
+    @email = Cookies.get('email')
 
   handleResponse: (e,d,s) ->
     console.log 'handleResponse'
@@ -16,17 +16,16 @@ Polymer "physics-facts",
         @$.factpage.factid = id
         @$.pages.selected = 2
 
-  tapAuth: (e,d,s) ->
+  tapAuth: (e,d,s) -> 
+    e.preventDefault()
+    e.stopPropagation()
     @$.authlog.open()
 
   tabSelect: (e,d,s) ->
     if d.isSelected
       switch d.item.id
         when 'signout'
-          @$.signoutjax.headers = {"X-Requested-With": "XMLHttpRequest"}
-          "X-User-Email": Cookies.get('user_email')
-          "X-User-Token": Cookies.get('auth_token')
-          @$.signoutjax.go()
+          @email = Cookies.expire('email').get('email')
         when 'tags'
           h = "#/tags"
         when 'facts'
@@ -35,11 +34,10 @@ Polymer "physics-facts",
       if h 
         window.location.hash = h
 
-  closeDrawer: (e,d,s) ->
-    @$.drawer.close()
+  closeDrawer: (e,d,s) -> @$.drawer.close()
 
-  openDrawer: (e,d,s) ->
-    @$.drawer.open()
+  openDrawer: (e,d,s) -> @$.drawer.open()
 
-  reloadFacts: ->
-    @$.factspage.getFacts()
+  reloadFacts: -> @$.factspage.getFacts()
+
+  setEmail: (e,d,s) -> @email = d

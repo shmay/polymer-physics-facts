@@ -1,0 +1,19 @@
+.form-control {
+  height: 10px;
+}
+
+paper-button {
+  min-width: initial;
+  background-color: #3e50b4;
+  fill: white;
+  color: white;
+  margin-top: 5px;
+}
+
+#email {
+  width: 90%;
+}
+
+#layout > div:nth-child(n+3) {
+  margin-top: 7px;
+}

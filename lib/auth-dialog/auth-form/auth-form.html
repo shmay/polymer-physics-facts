@@ -1,0 +1,53 @@
+<polymer-element name="auth-form" attributes='selected'>
+  <template>
+    <link href="auth-form.css" rel="stylesheet">
+
+    <core-ajax
+      id='ajax'
+      url="/api/users/sign_in"
+      method='POST'
+      contentType="application/json"
+      on-core-error='{{handleError}}'
+      on-core-response="{{handleResponse}}"></core-ajax>
+
+    <bootstrap-alert type='danger'>
+      Invalid email or password.
+    </bootstrap-alert>
+
+    <div id='layout' layout vertical>
+      <div>
+        <h5>{{title}}</h5>
+      </div>
+
+      <div hidden?='{{signin}}'>
+        <label for='username'>Username</label>
+        <input id='username' name='username' type='text' value='{{username}}' class='form-control'/>
+      </div>
+
+      <div>
+        <label for='email'>Email</label>
+        <input id='email' name='email' type='text' value='{{email}}' class='form-control'/>
+      </div>
+
+      <div>
+        <label for='pw'>Password</label>
+        <input id='pw' name='pw' type='text' value='{{pw}}' class='form-control' />
+      </div>
+
+      <div hidden?='{{signin}}'>
+        <label for='pwconf'>Password Confirmation</label>
+        <input name='pwconf' id='pwconf' type='password' value='{{pwconf}}' class='form-control' />
+      </div>
+
+      <div>
+        <paper-button on-tap='{{submit}}'>Submit</paper-button>
+      </div>
+
+      <div><a on-click='{{googauth}}' href="#">Sign in with Google </a></div>
+    </div>
+
+  </template>
+
+  <script type="text/javascript" src='auth-form.js'></script>
+
+</polymer-element>
