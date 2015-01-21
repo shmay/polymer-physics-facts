@@ -1,6 +1,5 @@
 Polymer 'facts-page',
-  attached: ->
-    @getFacts()
+  attached: -> @getFacts()
 
   getFacts: ->
     @facts = undefined
@@ -12,5 +11,4 @@ Polymer 'facts-page',
     @fire('open-drawer')
 
   handleResponse: (e,d,s) ->
-    @facts = d.response
-    console.log @facts
+    @facts = d.response.facts

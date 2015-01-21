@@ -35,29 +35,3 @@ table {
   border-spacing: 0;
   border-collapse: collapse;
 }
-
-#table {
-  .star {
-    width: 50px;
-  }
-  .votes {
-    width: 70px;
-  }
-  .title {
-    width: 400px;
-  }
-  .tags {
-    width: 200px;
-  }
-  .views {
-    width:50px;
-  }
-  .activity {
-    width:70px;
-  }
-}
-#header {
-  > div {
-    font-weight: bold;
-  }
-}

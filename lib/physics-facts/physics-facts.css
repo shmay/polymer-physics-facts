@@ -31,13 +31,6 @@
 core-header-panel {
   position: static; }
 
-.container {
-  width: 1170px;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto; }
-
 #content {
   padding-top: 15px; }
 
@@ -49,3 +42,22 @@ paper-tabs#tabs a {
   paper-tabs#tabs a:visited {
     text-decoration: none;
     color: #FFF; }
+
+:host /deep/ .container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px; }
+  :host /deep/ .container:after {
+    content: "";
+    display: table;
+    clear: both; }
+  @media (min-width: 768px) {
+    :host /deep/ .container {
+      width: 750px; } }
+  @media (min-width: 992px) {
+    :host /deep/ .container {
+      width: 970px; } }
+  @media (min-width: 1200px) {
+    :host /deep/ .container {
+      width: 1170px; } }

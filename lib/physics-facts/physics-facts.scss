@@ -1,3 +1,5 @@
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins/grid";
 @import "../sass-globals/globals.scss";
 
 :host /deep/ .core-header { 
@@ -19,14 +21,6 @@ core-header-panel {
   position: static;
 }
 
-.container {
-  width: 1170px;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
 #content {
   padding-top: 15px;
 }
@@ -40,5 +34,19 @@ paper-tabs#tabs a {
   &:visited {
     text-decoration: none;
     color: #FFF
+  }
+}
+
+:host /deep/ .container {
+  @include container-fixed;
+
+  @media (min-width: $screen-sm-min) {
+    width: $container-sm;
+  }
+  @media (min-width: $screen-md-min) {
+    width: $container-md;
+  }
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
   }
 }

@@ -16,18 +16,34 @@
 
     <center>
       <paper-spinner class='red' active hidden?='{{!!facts}}'></paper-spinner>
-    </center>
 
-    <div id='table'>
-      <div layout horizontal id='header'>
-        <div class='star'>Star</div>
-        <div class='votes'>Votes</div>
-        <div class='title'>Title</div>
-        <div class='tags'>Tags</div>
-        <div class='views'>Views</div>
-        <div class='activity'>Activity</div>
-      </div>
-    </div>
+      <table hidden?='{{!facts}}'>
+        <thead>
+          <th>Star</th>
+          <th>Votes</th>
+          <th>Title</th>
+          <th>Tags</th>
+          <th>Views</th>
+          <th>Activity</th>
+        </thead>
+        <tbody>
+          <template repeat='{{fact in facts}}'>
+            <tr>
+              <td class='star'>
+                <core-icon icon='star-outline'></core-icon>
+              </td>
+              <td class='votes'>{{fact.votes_count}}</td>
+              <td>
+                <a href='/#/facts/[[fact.id]]'>[[fact.title]]</a>
+              </td>
+              <td>[[fact.tag_list]]</td>
+              <td>[[fact.views]]</td>
+              <td>[[fact.created_at]]</td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </center>
 
   </template>
 

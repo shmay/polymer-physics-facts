@@ -1,6 +1,6 @@
 {
   "name": "physics facts",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "authors": [
     "Kyle Murphy <kmurph73@gmail.com>"
   ],
@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer",
+    "moment": "moment/moment",
     "core-elements": "Polymer/core-elements",
     "paper-elements": "Polymer/paper-elements",
     "bootstrap-sass": "twbs/bootstrap-sass",

@@ -20,21 +20,18 @@
         </div>
       </div>
 
-      <div id='content' class="content">
-        <div class="container" on-open-drawer='{{openDrawer}}'>
-          <core-pages id='pages' selected="0">
-            <facts-page id='factspage'></facts-page>
-            <div>tags</div>
-            <fact-page id='factpage'></fact-page>
-          </core-pages>
-        </div>
+      <div id='content' class="content container" on-open-drawer='{{openDrawer}}'>
+        <core-pages id='pages' selected="0">
+          <facts-page id='factspage'></facts-page>
+          <div>tags</div>
+          <fact-page id='factpage'></fact-page>
+        </core-pages>
       </div>
     </core-header-panel>
 
     <bottom-drawer id='drawer'>
       <fact-form on-reload-facts='{{reloadFacts}}' on-close-drawer='{{closeDrawer}}'></fact-form>
     </bottom-drawer>
-
 
     <auth-dialog on-set-email='{{setEmail}}' id='authlog'></auth-dialog>
 
