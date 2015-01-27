@@ -1,4 +1,4 @@
-<polymer-element name="facts-page">
+<polymer-element name="facts-page" attributes='signedin'>
   <template>
     <link href="facts-page.css" rel="stylesheet">
 
@@ -14,6 +14,14 @@
       handleAs="json"
       on-core-response="{{handleResponse}}"></core-ajax>
 
+    <core-ajax
+      id='voteajax'
+      url="/api/votes"
+      method='POST'
+      contentType="application/json"
+      handleAs="json"
+      on-core-response="{{voteResponse}}"></core-ajax>
+
     <center>
       <paper-spinner class='red' active hidden?='{{!!facts}}'></paper-spinner>
 
@@ -26,19 +34,28 @@
           <th>Views</th>
           <th>Activity</th>
         </thead>
+
         <tbody>
           <template repeat='{{fact in facts}}'>
-            <tr>
+            <tr id="fact_[[fact.id]]">
               <td class='star'>
                 <core-icon icon='star-outline'></core-icon>
               </td>
-              <td class='votes'>{{fact.votes_count}}</td>
+              <td class='votes'>
+                <center layout vertical>
+                  <core-icon class="{{ {voted: fact.user_vote == 1} | tokenList}}"
+                    on-click='{{voteUp}}' icon='expand-less'></core-icon>
+                  <span class='votes_count'>{{fact.votes_count}}</span>
+                  <core-icon class="{{ {voted: fact.user_vote == -1} | tokenList}}" 
+                    on-click='{{voteDown}}' icon='expand-more'></core-icon>
+                </center>
+              </td>
               <td>
                 <a href='/#/facts/[[fact.id]]'>[[fact.title]]</a>
               </td>
               <td>[[fact.tag_list]]</td>
-              <td>[[fact.views]]</td>
-              <td>[[fact.created_at]]</td>
+              <td>[[fact.impressions_count || '0' ]]</td>
+              <td>[[fact.from_now]]</td>
             </tr>
           </template>
         </tbody>

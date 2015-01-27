@@ -4,9 +4,10 @@ Polymer 'auth-form',
     @title = if @selected == 1 then "Sign In" else "Sign Up"
 
   submit: ->
-    @$.ajax.headers = 
-      "X-Requested-With": "XMLHttpRequest"
-
+    @disable()
+    #@$.ajax.headers = 
+    #  "X-Requested-With": "XMLHttpRequest"
+    
     json =
       email: @email
       password: @pw
@@ -14,6 +15,9 @@ Polymer 'auth-form',
     if !@signin
       json.password_confirmation = @pwconf
       json.username = @username
+      @$.ajax.url= "/api/sign_up"
+    else
+      @$.ajax.url= "/api/sign_in"
 
     json =
       user: json
@@ -23,13 +27,26 @@ Polymer 'auth-form',
     @$.ajax.go()
 
   handleResponse: (e,d,s) ->
+    @enable()
+
     json = JSON.parse d.response
 
-    Cookies.set('email', json.email)
-    Cookies.set('auth_token', json.authentication_token)
+    Cookies.set("is_signed_in", true)
 
-    @fire('set-email', json.email)
+    @fire('set-signedin', true)
 
     @fire('close')
 
-  handleError: (e,d,s) -> @hasError = true
+  handleError: (e,d,s) -> 
+    console.log 'handleError'
+    @$.alert.hidden = false
+
+    @enable()
+
+  disable: ->
+    @$.alert.hidden = true
+
+    @$.btn.disabled = true
+
+  enable: ->
+    @$.btn.disabled = false

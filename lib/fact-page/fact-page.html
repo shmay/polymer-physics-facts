@@ -3,8 +3,15 @@
     <link href="fact-page.css" rel="stylesheet">
 
     <center>
-      <h2>{{fact.title}}</h2>
-      <mark-down text='{{fact.body}}'></mark-down>
+      <paper-spinner class='red' active hidden?='{{!!fact.id}}'></paper-spinner>
+
+      <div id='body' hidden?='{{!fact.id}}'>
+        <h2>
+          {{fact.title}}
+          <core-icon icon='create' id='create' on-tap='{{editFact}}'></core-icon>
+        </h2>
+        <mark-down text='{{fact.body}}'></mark-down>
+      </div>
     </center>
 
     <core-ajax
@@ -13,6 +20,7 @@
       method='GET'
       handleAs="json"
       on-core-response="{{handleResponse}}"></core-ajax>
+
   </template>
 
   <script type="text/javascript" src='fact-page.js'></script>

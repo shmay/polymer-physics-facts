@@ -4,7 +4,7 @@ Polymer 'fact-form',
   handleResponse: (e,d,s) ->
     @fire('reload-facts')
 
-    window.location.hash = "#/facts/#{d.response.id}"
+    window.location.hash = "#/facts/#{d.response.fact.id}"
 
   cancel: (e,d,s) -> 
     @fire('close-drawer')
@@ -12,7 +12,7 @@ Polymer 'fact-form',
   tapSubmit: (e,d,s) ->
     @$.ajax.headers = 
       "X-Requested-With": "XMLHttpRequest"
-      "X-User-Email": Cookies.get('user_email')
+      "X-User-Email": Cookies.get('email')
       "X-User-Token": Cookies.get('auth_token')
 
     json = 
@@ -24,3 +24,5 @@ Polymer 'fact-form',
     @$.ajax.body = JSON.stringify json
 
     @$.ajax.go()
+
+  setFact: (fact) ->

@@ -1,14 +1,24 @@
 Polymer "physics-facts", 
   ready: ->
-    @email = Cookies.get('email')
+    @signedin = Cookies.get('is_signed_in') == 'true'
 
-  handleResponse: (e,d,s) ->
-    console.log 'handleResponse'
+    @$.userajax.go() if @signedin
+
+    if window.location.hash == ""
+      window.location.hash = "/"
+
+  handleResponse: (e,d,s) -> 
+    @signedin = !!JSON.parse(d.response).user.email
+
+  handleSignout: (e,d,s) ->
+    Cookies.expire('is_signed_in')
+    @signedin = false
 
   handleRoute: (e,d,s) ->
     [route,id] = d
     switch route
       when 'go-home'
+        console.log 'go home'
         @$.pages.selected = 0
       when 'tags'
         @$.pages.selected = 1
@@ -25,7 +35,7 @@ Polymer "physics-facts",
     if d.isSelected
       switch d.item.id
         when 'signout'
-          @email = Cookies.expire('email').get('email')
+          @$.signoutjax.go()
         when 'tags'
           h = "#/tags"
         when 'facts'
@@ -40,4 +50,4 @@ Polymer "physics-facts",
 
   reloadFacts: -> @$.factspage.getFacts()
 
-  setEmail: (e,d,s) -> @email = d
+  setSignedin: (e,d,s) -> @signedin = d

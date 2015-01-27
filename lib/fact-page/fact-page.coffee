@@ -1,11 +1,11 @@
 Polymer 'fact-page',
+  fact: {}
+
   factidChanged: (e,d,s) ->
-    console.log 'factidChanged'
     @$.ajax.url = "/api/facts/#{@factid}"
     @$.ajax.go()
 
   handleResponse: (e,d,s) ->
-    @fact = d.response
+    @fact = d.response.fact
 
-
-
+  editFact: (e,d,s) ->

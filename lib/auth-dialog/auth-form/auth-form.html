@@ -4,13 +4,12 @@
 
     <core-ajax
       id='ajax'
-      url="/api/users/sign_in"
       method='POST'
       contentType="application/json"
       on-core-error='{{handleError}}'
       on-core-response="{{handleResponse}}"></core-ajax>
 
-    <bootstrap-alert type='danger'>
+    <bootstrap-alert id='alert' type='danger' closeable hidden>
       Invalid email or password.
     </bootstrap-alert>
 
@@ -40,7 +39,7 @@
       </div>
 
       <div>
-        <paper-button on-tap='{{submit}}'>Submit</paper-button>
+        <paper-button id='btn' on-tap='{{submit}}'>Submit</paper-button>
       </div>
 
       <div><a on-click='{{googauth}}' href="#">Sign in with Google </a></div>

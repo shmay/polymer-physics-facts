@@ -27,6 +27,7 @@
     "bootstrap-alert": "shmay/bootstrap-alert",
     "bowser": "ded/bowser",
     "bourbon": "thoughtbot/bourbon",
+    "underscore": "jashkenas/underscore",
     "spin.js": "fgnass/spin.js"
   }
 }
