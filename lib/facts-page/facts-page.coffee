@@ -18,6 +18,7 @@ Polymer 'facts-page',
   voteUp: (e,d,s) -> 
     if @signedin
       fact = @getFact s
+
       if fact.user_vote == 1
         @deleteVote(fact)
       else
@@ -37,13 +38,10 @@ Polymer 'facts-page',
 
     fact.user_vote = 0
 
-    json =
-      fact_id:fact.id
-
-    xhr = @$.voteajax
+    xhr = @$.delajax
     xhr.method = 'DELETE'
     xhr.json = JSON.stringify json
-    xhr.url = "/api/votes"
+    xhr.url = "/api/votes/#{fact_id}"
 
     xhr.go()
 
