@@ -1,1 +1,2 @@
-Polymer 'markdown-with-preview'
+Polymer 'markdown-with-preview',
+  showPreview: true

@@ -1,4 +1,11 @@
 Polymer 'fact-form',
+  fact: {}
+
+  submitTitle: 'create fact'
+  submitIcon: 'add'
+
+  factChanged: ->
+
   clickSub: -> @submitty()
 
   handleResponse: (e,d,s) ->
@@ -16,9 +23,7 @@ Polymer 'fact-form',
       "X-User-Token": Cookies.get('auth_token')
 
     json = 
-      fact:
-        body:@text
-        title:@title
+      fact:@fact
       tag_list:@tags
 
     @$.ajax.body = JSON.stringify json

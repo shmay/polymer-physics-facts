@@ -2,24 +2,29 @@
   <template>
     <link href="fact-page.css" rel="stylesheet">
 
+    <fact-model on-fact-found='{{stashFact}}' id='model'></fact-model>
+
     <center>
       <paper-spinner class='red' active hidden?='{{!!fact.id}}'></paper-spinner>
-
-      <div id='body' hidden?='{{!fact.id}}'>
-        <h2>
-          {{fact.title}}
-          <core-icon icon='create' id='create' on-tap='{{editFact}}'></core-icon>
-        </h2>
-        <mark-down text='{{fact.body}}'></mark-down>
-      </div>
     </center>
 
-    <core-ajax
-      id='ajax'
-      contentType="application/json"
-      method='GET'
-      handleAs="json"
-      on-core-response="{{handleResponse}}"></core-ajax>
+    <div hidden?='{{!fact.id}}' layout vertical>
+      <div id='titlebar' layout horizontal>
+        <div flex> 
+          {{fact.title}}
+          <core-tooltip label="edit this fact" position='top' noarrow>
+            <core-icon icon='create' id='edit' on-tap='{{editFact}}'></core-icon>
+          </core-tooltip>
+          <core-tooltip label="I understand this fact" position='top' noarrow>
+            <core-icon icon='check-box' id='understood' on-tap='{{understood}}'></core-icon>
+          </core-tooltip>
+        </div>
+
+      </div>
+      <div id='body'>
+        <mark-down text="{{fact.body || ''}}"></mark-down>
+      </div>
+    </div>
 
   </template>
 

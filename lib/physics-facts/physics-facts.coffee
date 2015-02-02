@@ -7,6 +7,13 @@ Polymer "physics-facts",
     if window.location.hash == ""
       window.location.hash = "/"
 
+  editFact: (e, fact) ->
+    @$.drawer.setFact fact
+    @openDrawer()
+
+  openLogin: (e,d,s) ->
+    @$.authlog.open()
+
   handleResponse: (e,d,s) -> 
     @signedin = !!JSON.parse(d.response).user.email
 
@@ -18,7 +25,6 @@ Polymer "physics-facts",
     [route,id] = d
     switch route
       when 'go-home'
-        console.log 'go home'
         @$.pages.selected = 0
       when 'tags'
         @$.pages.selected = 1
@@ -31,11 +37,14 @@ Polymer "physics-facts",
     e.stopPropagation()
     @$.authlog.open()
 
+  tapOut: (e,d,s) ->
+    e.preventDefault()
+    e.stopPropagation()
+    @$.signoutjax.go()
+
   tabSelect: (e,d,s) ->
     if d.isSelected
       switch d.item.id
-        when 'signout'
-          @$.signoutjax.go()
         when 'tags'
           h = "#/tags"
         when 'facts'

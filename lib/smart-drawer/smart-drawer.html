@@ -1,12 +1,8 @@
-<polymer-element name="smart-drawer">
+<polymer-element name="smart-drawer" extends='bottom-drawer'>
   <template>
     <link href="smart-drawer.css" rel="stylesheet">
 
-    <core-pages>
-      <fact-form on-reload-facts='{{reloadFacts}}' on-close-drawer='{{closeDrawer}}'></fact-form>
-      <blah></blah>
-    </core-pages>
-
+    <shadow></shadow>
   </template>
 
   <script type="text/javascript" src='smart-drawer.js'></script>

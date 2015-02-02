@@ -18,6 +18,9 @@ h3 {
   .votes core-icon.voted {
     color: #fc8500; }
 
+.star core-icon {
+  cursor: pointer; }
+
 #newbtn {
   display: inline-block; }
 
@@ -25,7 +28,7 @@ h3 {
   text-align: center; }
 
 td {
-  padding: 1px;
+  padding: 1px 15px;
   border-top: 1px solid gray; }
 
 td.title {

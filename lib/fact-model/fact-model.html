@@ -1,0 +1,31 @@
+<polymer-element name="fact-model" attributes='facts'>
+  <template>
+    <fact-ajax
+      id='ajax'
+      url="/api"
+      on-core-response="{{handleResponse}}"></fact-ajax>
+
+    <fact-ajax
+      id='find' method='GET'
+      on-core-response="{{findResponse}}"></fact-ajax>
+
+    <fact-ajax
+      id='voteajax'
+      url="/api/votes"
+      method='POST'></fact-ajax>
+
+    <fact-ajax
+      id='starajax'
+      on-core-error="{{starError}}"
+      on-core-response="{{starResponse}}"
+      method='POST'></fact-ajax>
+
+    <fact-ajax
+      id='delajax'
+      method='DELETE'
+      on-core-response="{{delResponse}}"
+      on-core-error="{{delError}}"></fact-ajax>
+  </template>
+
+  <script type="text/javascript" src='fact-model.js'></script>
+</polymer-element>

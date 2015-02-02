@@ -12,21 +12,22 @@
 
     <div id='content'>
       <div horizontal layout>
-        <bootstrap-input val='{{title}}' label='Fact title'></bootstrap-input>
+        <bootstrap-input val='{{fact.title}}' label='Fact title'></bootstrap-input>
         <tagger-input selectedTags='{{tags}}' label='input tags naw ...'></tagger-input>
       </div>
 
-      <markdown-with-preview text='{{text}}' id='markdown'></markdown-with-preview>
+      <markdown-with-preview text='{{fact.body}}' id='markdown'></markdown-with-preview>
 
       <div id='bottom'>
         <paper-button raised on-tap='{{tapSubmit}}'>
-          <core-icon icon='add'></core-icon>
-          create new fact
+          <core-icon icon='{{submitIcon}}'></core-icon>
+          {{submitTitle}}
         </paper-button>
 
         <paper-button id='cancel' raised on-tap='{{cancel}}'>
           <core-icon icon='highlight-remove'></core-icon>
-        cancel</paper-button>
+          cancel
+        </paper-button>
       </div>
     </div>
 

@@ -21,32 +21,39 @@
     <core-header-panel>
       <div class="core-header">
         <div class="container">
-          <paper-tabs id='tabs' on-core-select="{{tabSelect}}" style='width:50%'>
+          <paper-tabs id='tabs' 
+            on-core-select="{{tabSelect}}" style='width:50%'>
             <paper-tab role="tab" id='facts'>FACTS</paper-tab>
             <paper-tab role="tab" id='tags'>TAGS</paper-tab>
             <paper-tab role="tab" id='profile' hidden?='{{!signedin}}'>PROFILE</paper-tab>
             <paper-tab hidden?='{{signedin}}' id='signin' on-tap='{{tapAuth}}'>
               SIGN IN
             </paper-tab>
-            <paper-tab hidden?='{{!signedin}}' id='signout'>
+            <paper-tab hidden?='{{!signedin}}' id='signout' on-tap='{{tapOut}}'>
               SIGN OUT
             </paper-tab>
           </paper-tabs>
         </div>
       </div>
 
-      <div id='content' class="content container" on-open-drawer='{{openDrawer}}'>
+      <div id='content' class="content container" 
+        on-open-login="{{openLogin}}"
+        on-open-drawer='{{openDrawer}}'>
         <core-pages id='pages' selected="0">
           <facts-page id='factspage' signedin='{{signedin}}'></facts-page>
-          <div>tags</div>
-          <fact-page id='factpage'></fact-page>
+          <tags-page>tags</tags-page>
+          <fact-page on-edit-fact='{{editFact}}' id='factpage'></fact-page>
         </core-pages>
       </div>
     </core-header-panel>
 
-    <bottom-drawer id='drawer'>
-      <fact-form on-reload-facts='{{reloadFacts}}' on-close-drawer='{{closeDrawer}}'></fact-form>
-    </bottom-drawer>
+    <smart-drawer id='drawer'
+      on-reload-facts='{{reloadFacts}}' on-close-drawer='{{closeDrawer}}'>
+      <core-pages selected='0'>
+        <fact-form id='factform'></fact-form>
+      </core-pages>
+
+    </smart-drawer>
 
     <auth-dialog on-set-signedin='{{setSignedin}}' id='authlog'></auth-dialog>
 

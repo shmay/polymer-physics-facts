@@ -1,0 +1,14 @@
+<polymer-element name="fact-ajax" extends='core-ajax'>
+  <template></template>
+  <script>
+    Polymer({
+      contentType: "application/json",
+      handleAs: 'json',
+      go: function() {
+        this.headers = {"X-Requested-With": "XMLHttpRequest"};
+        this.super();
+      }
+    })
+  </script>
+</polymer-element>
+

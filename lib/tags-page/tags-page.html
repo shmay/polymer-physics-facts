@@ -1,0 +1,28 @@
+<polymer-element name="tags-page" attributes='signedin'>
+  <template>
+    <link href="tags-page.css" rel="stylesheet">
+
+    <fact-ajax id='ajax'
+      on-core-response='{{handleResponse}}'
+      url='/api/tags' method='GET'></fact-ajax>
+
+    <center>
+      <h3>TAGS</h3>
+
+      <paper-button on-tap='{{tapAdd}}' id='newbtn' raised>Add New Tag</paper-button>
+
+      <br/>
+
+      <paper-spinner id='spinner' active hidden?='{{!!tags}}'></paper-spinner>
+
+      <div id='tags'>
+        <template repeat='{{tag in tags}}'>
+          <a href='/#/tags/{{tag.name}}'>{{tag.name}}</a>
+        </template>
+      </div>
+    </center>
+
+  </template>
+
+  <script type="text/javascript" src='tags-page.js'></script>
+</polymer-element>

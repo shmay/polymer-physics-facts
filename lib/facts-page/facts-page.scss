@@ -23,6 +23,10 @@ h3 {
   }
 }
 
+.star core-icon {
+  cursor:pointer;
+}
+
 #newbtn {
   display: inline-block;
 }
@@ -32,7 +36,7 @@ h3 {
 }
 
 td {
-  padding: 1px;
+  padding: 1px 15px;
   border-top: 1px solid gray;
 }
 

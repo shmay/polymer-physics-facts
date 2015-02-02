@@ -1,11 +1,11 @@
 Polymer 'fact-page',
   fact: {}
 
+  stashFact: (e,fact) -> @fact = fact
+
   factidChanged: (e,d,s) ->
-    @$.ajax.url = "/api/facts/#{@factid}"
-    @$.ajax.go()
+    @fact = {}
+    @$.model.findFact(@factid)
 
-  handleResponse: (e,d,s) ->
-    @fact = d.response.fact
-
-  editFact: (e,d,s) ->
+  editFact: (e,d,s) -> 
+    @fire('edit-fact', @fact)
