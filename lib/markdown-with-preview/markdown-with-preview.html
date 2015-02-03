@@ -11,9 +11,10 @@
       <textarea id='text' class='form-control' is='core-input' value="{{text}}">
       </textarea>
     </div>
+
     <div>
       <span class='title'>Preview</span>
-      <span> <a href='#' hidden?='{{!showPreview}}'>hide preview</a> </span>
+      <span><a href='#' on-tap='{{hidePreview}}' hidden?='{{!showPreview}}'>hide preview</a></span>
       <mark-down id='preview' text='{{text}}'></mark-down>
     </div>
 
